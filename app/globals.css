@@ -1,0 +1,395 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-black text-white;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+.static-lines {
+  display: flex;
+  height: 408px;
+  justify-content: space-between;
+  left: 50%;
+  position: absolute;
+  top: 116px;
+  transform: translate(-50%);
+  width: 1000px;
+}
+
+.static-lines::before {
+  background: linear-gradient(to top, rgba(243, 238, 255, 0) -.89%, rgba(243, 238, 255, .12) 100%);
+  content: "";
+  display: block;
+  height: 100%;
+  width: 1px;
+}
+
+.static-lines::after {
+  background: linear-gradient(to top, rgba(243, 238, 255, 0) -.89%, rgba(243, 238, 255, .12) 100%);
+  content: "";
+  display: block;
+  height: 100%;
+  width: 1px;
+}
+
+.section-header::after {
+  background: linear-gradient(90.01deg, rgba(229, 156, 255, .24) .01%, rgba(186, 156, 255, .24) 50.01%, rgba(156, 178, 255, .24) 100%);
+  border-radius: inherit;
+  content: "";
+  inset: 0;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1px;
+  pointer-events: none;
+  position: absolute;
+}
+
+
+.feature-section-wrapper {
+  display: grid;
+  background-image: url("/feature-1/bg-image-feature.png");
+  grid-template-columns: repeat(2, 1fr);
+  height: 432px;
+  margin: 0 auto;
+  padding: 9px 24px 0;
+  position: relative;
+  width: 984px;
+  background-size: cover;
+  background-position: center;
+  transition: 1s cubic-bezier(.6, .6, 0, 1) opacity;
+}
+
+.feature-section-items {
+  background: radial-gradient(100% 100% at 100% 100%, rgba(255, 255, 255, .08) 0%, rgba(3, 0, 20, 0) 100%);
+  padding: 21px;
+  text-align: center;
+  width: 468px;
+}
+
+.integrations-logo {
+  z-index: 1;
+}
+
+.integrations-logo,
+.integrations-waves {
+  height: 48px;
+  left: 50%;
+  position: absolute;
+  top: 204px;
+  transform: translate(-50%);
+  width: 48px;
+}
+
+.lazy-image {
+  display: block;
+  transition: 1s cubic-bezier(.6, .6, 0, 1) opacity;
+}
+
+.integrations-lines div:first-child {
+  animation-name: integrationsLine1;
+}
+
+.integrations-lines div {
+  animation-delay: .5s;
+  animation-duration: 3.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(.6,.6,0,1);
+  background: linear-gradient(to bottom, rgba(201, 177, 255, 0), #c9b1ff, rgba(201, 177, 255, 0));
+  content: "";
+  height: 50px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+}
+
+@keyframes integrationsLine1 {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+}
+
+20% {
+  opacity: 1;
+}
+
+86%, 100% {
+  opacity: 1;
+  transform: translateY(-500px);
+}
+}
+
+.integrations-lines div:last-child {
+  animation-name: integrationsLine2;
+}
+
+@keyframes integrationsLine2 {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+}
+20% {
+  opacity: 1;
+}
+86%, 100% {
+  opacity: 1;
+  transform: translateY(500px);
+}
+}
+
+.integrations-lines {
+  height: calc(100% - 8px);
+  left: 50%;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 25%, #fff 50%, #fff 75%, rgba(255, 255, 255, 0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 25%, #fff 50%, #fff 75%, rgba(255, 255, 255, 0) 100%);
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  position: absolute;
+  top: 8px;
+  transform: translate(-50%);
+  width: 1px;
+}
+
+.integrations-waves img:nth-child(1) {
+  animation-name: wave1;
+  height: 48px;
+  width: 48px;
+}
+
+.integrations-waves img {
+  animation-duration: 3.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(.6, .6, 0, 1);
+  border-radius: 50%;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lazy-image {
+  display: block;
+  transition: 1s cubic-bezier(.6, .6, 0, 1) opacity;
+}
+
+@keyframes wave1 {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  90%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(5);
+  }
+}
+
+.integrations-waves img:nth-child(2) {
+  animation-name: wave2;
+  height: 40px;
+  width: 40px;
+}
+
+.integrations-waves img {
+  animation-duration: 3.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(.6, .6, 0, 1);
+  border-radius: 50%;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lazy-image {
+  display: block;
+  transition: 1s cubic-bezier(.6, .6, 0, 1) opacity;
+}
+
+@keyframes wave2 {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  68%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(4);
+  }
+}
+
+.integrations-waves img:nth-child(3) {
+  animation-name: wave3;
+  height: 32px;
+  width: 32px;
+}
+
+.integrations-waves img {
+  animation-duration: 3.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(.6, .6, 0, 1);
+  border-radius: 50%;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lazy-image {
+  display: block;
+  transition: 1s cubic-bezier(.6, .6, 0, 1) opacity;
+}
+
+@keyframes wave3 {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  71%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3);
+  }
+}
+
+
+
+/* run smarter section */
+
+.solution-header {
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    text-align: left;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 25.5rem;
+    display: flex;
+  }
